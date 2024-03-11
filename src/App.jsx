@@ -2,18 +2,18 @@ import './App.css';
 import {useState} from "react";
 import UserContext from "./context/UserContext";
 import {User} from "./components/User";
+import ChangeUser from "./components/ChangeUser";
 
 function App() {
-
   const [user, setUser] = useState("Dima");
-
   return (
-    <div className="App">
-          <UserContext.Provider value={user}>
-              <User/>
-          </UserContext.Provider>
-    </div>
-  );
+        <UserContext.Provider value={{user: user, setUser: setUser}}>
+            <div className="App">
+                <User/>
+                <ChangeUser/>
+            </div>
+        </UserContext.Provider>
+);
 }
 
 export default App;
